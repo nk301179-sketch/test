@@ -76,8 +76,7 @@ const ContactPage = () => {
         return;
       }
 
-      const API_URL = import.meta.env.VITE_API_URL;
-      const response = await fetch(`${API_URL}/api/contact-messages/my-messages`, {
+      const response = await fetch('http://localhost:8084/api/contact-messages/my-messages', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -121,8 +120,7 @@ const ContactPage = () => {
     setStatus('sending');
     try {
       const token = localStorage.getItem('token');
-      const API_URL = import.meta.env.VITE_API_URL;
-      const response = await fetch(`${API_URL}/api/contact-messages`, {
+      const response = await fetch('http://localhost:8084/api/contact-messages', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

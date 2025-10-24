@@ -48,9 +48,8 @@ export const AdminAuthProvider = ({ children }) => {
   const login = async (email, password) => {
     try {
       // Set base URL for this request
-      const API_URL = import.meta.env.VITE_API_URL;
       const api = axios.create({
-        baseURL: API_URL
+        baseURL: 'http://localhost:8084'
       })
       
       // Try backend admin login

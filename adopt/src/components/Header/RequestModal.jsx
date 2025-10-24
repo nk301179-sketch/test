@@ -35,8 +35,7 @@ function RequestModal({ onClose, onSubmit, initialData }) {
     setIsSubmitting(true);
 
     try {
-      const API_URL = import.meta.env.VITE_API_URL;
-      const response = await fetch(`${API_URL}/api/reports`, {
+      const response = await fetch("http://localhost:8080/api/reports", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

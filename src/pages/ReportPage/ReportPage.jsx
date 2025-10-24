@@ -329,8 +329,7 @@ const ReportPage = () => {
         reportId: reportToDelete
       });
 
-      const API_URL = import.meta.env.VITE_API_URL;
-      const response = await fetch(`${API_URL}/api/reports/${reportToDelete}`, {
+      const response = await fetch(`http://localhost:8084/api/reports/${reportToDelete}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,
