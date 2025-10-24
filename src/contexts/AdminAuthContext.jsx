@@ -20,7 +20,8 @@ export const AdminAuthProvider = ({ children }) => {
   useEffect(() => {
     if (token) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
-      axios.defaults.baseURL = 'http://localhost:8084'
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8084'
+      axios.defaults.baseURL = API_URL
     } else {
       delete axios.defaults.headers.common['Authorization']
     }
