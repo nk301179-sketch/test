@@ -18,7 +18,8 @@ export const AuthProvider = ({ children }) => {
 
   // Configure axios defaults
   useEffect(() => {
-    axios.defaults.baseURL =  process.env.VITE_API_URL
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8084'
+    axios.defaults.baseURL = API_URL
     if (token) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
     } else {
