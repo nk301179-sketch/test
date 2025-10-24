@@ -1,0 +1,411 @@
+/* Admin Layout Styles */
+.admin-layout {
+  min-height: 100vh;
+  background: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+/* Admin Header */
+.admin-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  transition: margin-left 0.3s ease;
+}
+
+.admin-header-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 0 2rem;
+}
+
+.admin-title-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #667eea;
+}
+
+.admin-title-section h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2d3748;
+}
+
+.admin-title-section p {
+  margin: 0;
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+.admin-user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.admin-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.admin-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.admin-name {
+  color: #2d3748;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.admin-role {
+  color: #4a5568;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.admin-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.admin-profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: #2d3748;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+}
+
+.admin-profile-btn:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  color: #1a202c;
+}
+
+.admin-logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #e53e3e;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.admin-logout-btn:hover {
+  background: #c53030;
+  transform: translateY(-1px);
+}
+
+/* Admin Container */
+.admin-container {
+  display: flex;
+  flex: 1;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  max-width: none;
+}
+
+/* Sidebar Trigger */
+.sidebar-trigger {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 100vh;
+  z-index: 1000;
+  background: transparent;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hide trigger when sidebar is visible to prevent interference */
+.admin-container.sidebar-visible .sidebar-trigger {
+  display: none;
+}
+
+.sidebar-trigger:hover {
+  background: rgba(102, 126, 234, 0.1);
+}
+
+/* Add a subtle indicator when sidebar is not visible */
+.sidebar-trigger::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 20px;
+  background: rgba(102, 126, 234, 0.3);
+  border-radius: 1px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-trigger:hover::after {
+  opacity: 1;
+}
+
+/* Admin Sidebar */
+.admin-sidebar {
+  width: 280px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 0 1rem 1rem 0;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+  position: fixed;
+  left: -280px;
+  top: 0;
+  z-index: 999;
+  transition: left 0.3s ease;
+  overflow-y: auto;
+}
+
+.admin-sidebar.visible {
+  left: 0;
+}
+
+/* Add a small delay to prevent flickering when moving between trigger and sidebar */
+.admin-sidebar:hover {
+  left: 0;
+}
+
+.admin-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.admin-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  color: #2d3748;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.admin-nav-item:hover {
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+  transform: translateX(4px);
+}
+
+.admin-nav-item.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.admin-nav-item.active .nav-label {
+  color: white;
+}
+
+.admin-nav-item.active .nav-description {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.nav-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+
+.nav-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.nav-label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #2d3748;
+}
+
+.nav-description {
+  font-size: 0.8rem;
+  color: #4a5568;
+  opacity: 0.9;
+}
+
+/* Admin Main Content */
+.admin-main {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  min-height: calc(100vh - 100px);
+  margin-left: 0;
+  transition: margin-left 0.3s ease;
+}
+
+/* When sidebar is visible, push main content to the right */
+.admin-container.sidebar-visible .admin-main {
+  margin-left: 280px;
+}
+
+/* When sidebar is visible, push header to the right */
+.admin-container.sidebar-visible .admin-header {
+  margin-left: 280px;
+}
+
+.admin-content {
+  padding: 2rem;
+  height: 100%;
+  width: 100%;
+  max-width: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .admin-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .admin-sidebar {
+    width: 100%;
+    position: static;
+    order: 2;
+  }
+  
+  .admin-main {
+    order: 1;
+  }
+  
+  /* On smaller screens, don't push content when sidebar is visible */
+  .admin-container.sidebar-visible .admin-main {
+    margin-left: 0;
+  }
+  
+  /* On smaller screens, don't push header when sidebar is visible */
+  .admin-container.sidebar-visible .admin-header {
+    margin-left: 0;
+  }
+  
+  .admin-nav {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 1rem;
+  }
+  
+  .admin-nav-item {
+    min-width: 200px;
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem 0.5rem;
+  }
+  
+  .nav-content {
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-header-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .admin-title-section {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .admin-user-info {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .admin-header-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+  
+  .admin-profile-btn,
+  .admin-logout-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .admin-profile {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .admin-details {
+    align-items: center;
+  }
+  
+  .admin-content {
+    padding: 1rem;
+  }
+}

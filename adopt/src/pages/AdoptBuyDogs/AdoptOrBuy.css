@@ -1,0 +1,111 @@
+.adoptbuy-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #ebf8ff, #fef3c7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #4a5568;
+  margin-bottom: 2rem;
+}
+
+.options {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.option-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 280px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+}
+
+.option-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.icon-wrapper {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+}
+
+.icon-wrapper.buy {
+  background: #ebf4ff;
+  color: #3b82f6;
+}
+
+.icon-wrapper.adopt {
+  background: #dcfce7;
+  color: #22c55e;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #2d3748;
+}
+
+p {
+  color: #4a5568;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.buy-btn, .adopt-btn {
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 100%;
+}
+
+.buy-btn {
+  background: #3b82f6;
+  color: white;
+}
+
+.buy-btn:hover {
+  background: #2563eb;
+}
+
+.adopt-btn {
+  background: #22c55e;
+  color: white;
+}
+
+.adopt-btn:hover {
+  background: #16a34a;
+}

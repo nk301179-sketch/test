@@ -1,0 +1,562 @@
+/* 🌟 Modern Dog Detail Styles */
+.dog-detail-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1a1a1a;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+/* 📱 Header & Navigation */
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.breadcrumb-link {
+  color: #3b82f6;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.breadcrumb-link:hover {
+  color: #2563eb;
+  background: #eff6ff;
+  text-decoration: none;
+}
+
+.breadcrumb-separator {
+  color: #94a3b8;
+}
+
+.breadcrumb-current {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.back-button {
+  background: #64748b;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: #475569;
+  transform: translateY(-1px);
+  text-decoration: none;
+  color: white;
+}
+
+/* 🏠 Main Container */
+.dog-detail-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 40px;
+  margin-top: 20px;
+}
+
+/* 🖼 Image Section */
+.image-section {
+  position: relative;
+}
+
+.main-image-container {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.main-image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.main-image:hover {
+  transform: scale(1.02);
+}
+
+/* 🏷️ Type & Status Badges */
+.type-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: white;
+}
+
+.adoption-badge {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  box-shadow: 0 2px 10px rgba(139, 92, 246, 0.3);
+}
+
+.purchase-badge {
+  background: linear-gradient(135deg, #10b981, #059669);
+  box-shadow: 0 2px 10px rgba(16, 185, 129, 0.3);
+}
+
+.status-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.unavailable {
+  background: #ef4444;
+  color: white;
+  box-shadow: 0 2px 10px rgba(239, 68, 68, 0.3);
+}
+
+/* ℹ️ Info Section */
+.info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dog-header {
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 20px;
+}
+
+.dog-name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.dog-breed {
+  font-size: 1.2rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* 📊 Meta Information */
+.dog-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.meta-label {
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.meta-value {
+  font-size: 1rem;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.type-tag, .status-tag {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.type-tag.adoption-badge {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+.type-tag.purchase-badge {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-tag.available {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-tag.unavailable, .status-tag.sold {
+  background: #fecaca;
+  color: #dc2626;
+}
+
+/* 💡 Type Info Cards */
+.type-info-card {
+  padding: 24px;
+  border-radius: 12px;
+  border-left: 4px solid;
+}
+
+.type-info-card.adoption-card {
+  background: linear-gradient(135deg, #faf5ff, #f3e8ff);
+  border-left-color: #8b5cf6;
+}
+
+.type-info-card.purchase-card {
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  border-left-color: #10b981;
+}
+
+.type-info-card h3 {
+  margin: 0 0 12px 0;
+  color: #1e293b;
+  font-size: 1.2rem;
+}
+
+.adoption-features, .purchase-features {
+  margin-top: 12px;
+}
+
+.adoption-features ul, .purchase-features ul {
+  margin: 8px 0 0 0;
+  padding-left: 20px;
+}
+
+.adoption-features li, .purchase-features li {
+  color: #475569;
+  margin: 4px 0;
+  font-size: 0.9rem;
+}
+
+/* 📝 Description Card */
+.description-card {
+  background: #f8fafc;
+  padding: 24px;
+  border-radius: 12px;
+  border-left: 4px solid #3b82f6;
+}
+
+.description-card h3 {
+  margin: 0 0 12px 0;
+  color: #1e293b;
+  font-size: 1.3rem;
+}
+
+.dog-description {
+  line-height: 1.7;
+  color: #475569;
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* 💰 Price Cards */
+.price-card {
+  padding: 24px;
+  border-radius: 12px;
+  border: 2px solid;
+}
+
+.price-card.purchase {
+  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+  border-color: #bbf7d0;
+}
+
+.price-card.adoption {
+  background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+  border-color: #ddd6fe;
+}
+
+.price-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.price-label {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.price-card.purchase .price-label {
+  color: #166534;
+}
+
+.price-card.adoption .price-label {
+  color: #7c3aed;
+}
+
+.price-amount {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.price-card.purchase .price-amount {
+  color: #166534;
+}
+
+.price-card.adoption .price-amount {
+  color: #7c3aed;
+}
+
+.price-note {
+  font-size: 0.85rem;
+}
+
+.price-card.purchase .price-note {
+  color: #15803d;
+}
+
+.price-card.adoption .price-note {
+  color: #7c3aed;
+}
+
+/* 🛒 Action Section */
+.action-section {
+  margin-top: 20px;
+}
+
+.action-button {
+  width: 100%;
+  padding: 18px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: none;
+  letter-spacing: 0.5px;
+  color: white;
+}
+
+.adopt-btn {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+.buy-btn {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.action-button:hover:not(.disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.action-button.disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.action-notes {
+  margin-top: 16px;
+  padding: 16px;
+  background: #f0f9ff;
+  border-radius: 8px;
+  border-left: 4px solid #0ea5e9;
+}
+
+.action-notes p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: #0369a1;
+}
+
+.unavailable-notice {
+  margin-top: 16px;
+  padding: 16px;
+  background: #fef2f2;
+  border-radius: 8px;
+  border-left: 4px solid #ef4444;
+  text-align: center;
+}
+
+.unavailable-notice p {
+  margin: 0 0 12px 0;
+  color: #dc2626;
+  font-size: 0.9rem;
+}
+
+.browse-link {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.browse-link:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+/* ⏳ Loading States */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  gap: 16px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ❌ Error States */
+.error-container {
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin: 40px auto;
+  max-width: 500px;
+}
+
+.error-container h2 {
+  color: #1e293b;
+  margin-bottom: 16px;
+}
+
+.error-container p {
+  color: #64748b;
+  margin-bottom: 24px;
+}
+
+.back-btn {
+  background: #3b82f6;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #2563eb;
+  text-decoration: none;
+  color: white;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 968px) {
+  .dog-detail-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 30px;
+  }
+  
+  .main-image {
+    height: 400px;
+  }
+  
+  .dog-name {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dog-detail-wrapper {
+    padding: 15px;
+  }
+  
+  .detail-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .dog-detail-container {
+    padding: 20px;
+  }
+  
+  .main-image {
+    height: 300px;
+  }
+  
+  .dog-name {
+    font-size: 1.8rem;
+  }
+  
+  .price-amount {
+    font-size: 1.5rem;
+  }
+  
+  .dog-meta {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .dog-detail-container {
+    padding: 16px;
+  }
+  
+  .main-image {
+    height: 250px;
+  }
+  
+  .dog-name {
+    font-size: 1.5rem;
+  }
+  
+  .action-button {
+    padding: 16px 20px;
+    font-size: 1rem;
+  }
+  
+  .dog-meta {
+    grid-template-columns: 1fr;
+  }
+}
