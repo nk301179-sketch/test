@@ -76,7 +76,8 @@ const ContactPage = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:8084/api/contact-messages/my-messages', {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/contact-messages/my-messages`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -120,7 +121,8 @@ const ContactPage = () => {
     setStatus('sending');
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:8084/api/contact-messages', {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/contact-messages`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -162,7 +164,8 @@ const ContactPage = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8084/api/contact-messages/${editingMessage.id}`, {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/contact-messages/${editingMessage.id}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -190,7 +193,8 @@ const ContactPage = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8084/api/contact-messages/${messageId}`, {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/contact-messages/${messageId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,

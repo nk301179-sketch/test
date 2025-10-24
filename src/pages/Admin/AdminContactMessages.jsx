@@ -22,7 +22,8 @@ const AdminContactMessages = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem('adminToken');
-      const response = await fetch('http://localhost:8084/api/admin/contact-messages', {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/admin/contact-messages`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -46,7 +47,8 @@ const AdminContactMessages = () => {
   const handleStatusUpdate = async (messageId, newStatus) => {
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await fetch(`http://localhost:8084/api/admin/contact-messages/${messageId}/status`, {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/admin/contact-messages/${messageId}/status`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -75,7 +77,8 @@ const AdminContactMessages = () => {
     try {
       setResponseLoading(true);
       const token = localStorage.getItem('adminToken');
-      const response = await fetch(`http://localhost:8084/api/admin/contact-messages/${selectedMessage.id}/respond`, {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/admin/contact-messages/${selectedMessage.id}/respond`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -107,7 +110,8 @@ const AdminContactMessages = () => {
 
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await fetch(`http://localhost:8084/api/admin/contact-messages/${messageId}`, {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/admin/contact-messages/${messageId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,

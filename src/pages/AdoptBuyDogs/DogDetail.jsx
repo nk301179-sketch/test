@@ -15,8 +15,9 @@ const DogDetails = () => {
   const [showApplicationForm, setShowApplicationForm] = useState(false);
 
   useEffect(() => {
+    const API_URL = import.meta.env.VITE_API_URL;
     axios
-      .get(`http://localhost:8084/api/dogs/${id}`)
+      .get(`${API_URL}/api/dogs/${id}`)
       .then((res) => {
         setDog(res.data);
         setLoading(false);

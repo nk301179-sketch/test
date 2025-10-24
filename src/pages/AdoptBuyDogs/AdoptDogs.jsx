@@ -12,8 +12,9 @@ const DogAdopt = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const API_URL = import.meta.env.VITE_API_URL;
     axios
-      .get("http://localhost:8084/api/dogs/adopt")
+      .get(`${API_URL}/api/dogs/adopt`)
       .then((res) => setDogs(res.data))
       .catch((err) => console.error("Error fetching dogs:", err));
   }, []);

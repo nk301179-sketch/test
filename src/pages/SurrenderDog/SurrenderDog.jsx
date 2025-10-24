@@ -76,7 +76,8 @@ const SurrenderDog = () => {
       }
       
       // Use the new user-specific endpoint
-      const url = 'http://localhost:8084/api/surrender-dogs/my-requests';
+      const API_URL = import.meta.env.VITE_API_URL;
+      const url = `${API_URL}/api/surrender-dogs/my-requests`;
       console.log('Using endpoint:', url);
       
       const response = await fetch(url, {
@@ -242,8 +243,8 @@ const SurrenderDog = () => {
     try {
       const method = editingSurrenderDog ? 'PUT' : 'POST';
       const url = editingSurrenderDog
-        ? `http://localhost:8084/api/surrender-dogs/${editingSurrenderDog.surrenderId}`
-        : 'http://localhost:8084/api/surrender-dogs';
+        ? `${import.meta.env.VITE_API_URL}/api/surrender-dogs/${editingSurrenderDog.surrenderId}`
+        : `${import.meta.env.VITE_API_URL}/api/surrender-dogs`;
 
       const formDataToSend = new FormData();
       const surrenderDogData = {
@@ -386,7 +387,8 @@ const SurrenderDog = () => {
 
   const confirmDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:8084/api/surrender-dogs/${surrenderDogToDelete}`, {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/surrender-dogs/${surrenderDogToDelete}`, {
         method: 'DELETE',
       });
 

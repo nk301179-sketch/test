@@ -19,7 +19,8 @@ const AdminUsers = () => {
   const fetchUsers = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:8084/api/admin/users', {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/admin/users`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
           'Content-Type': 'application/json'
@@ -47,7 +48,8 @@ const AdminUsers = () => {
 
   const confirmDeleteUser = async () => {
     try {
-      const response = await fetch(`http://localhost:8084/api/admin/users/${userToDelete}`, {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/admin/users/${userToDelete}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,

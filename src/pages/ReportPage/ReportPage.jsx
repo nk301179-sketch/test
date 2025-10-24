@@ -58,7 +58,8 @@ const ReportPage = () => {
       }
       
       // Use the new user-specific endpoint
-      const url = 'http://localhost:8084/api/reports/my-reports';
+      const API_URL = import.meta.env.VITE_API_URL;
+      const url = `${API_URL}/api/reports/my-reports`;
       console.log('Using endpoint:', url);
       
       const response = await fetch(url, {
@@ -199,9 +200,10 @@ const ReportPage = () => {
 
     try {
       const method = editingReport ? 'PUT' : 'POST';
+      const API_URL = import.meta.env.VITE_API_URL;
       const url = editingReport
-        ? `http://localhost:8084/api/reports/${editingReport.id}`
-        : 'http://localhost:8084/api/reports';
+        ? `${API_URL}/api/reports/${editingReport.id}`
+        : `${API_URL}/api/reports`;
 
       const formDataToSend = new FormData();
       const reportData = {
@@ -329,7 +331,8 @@ const ReportPage = () => {
         reportId: reportToDelete
       });
 
-      const response = await fetch(`http://localhost:8084/api/reports/${reportToDelete}`, {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/reports/${reportToDelete}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,

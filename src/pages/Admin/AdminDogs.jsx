@@ -23,7 +23,8 @@ const AdminDogs = () => {
     try {
       setLoading(true);
       setError('');
-      const response = await axios.get("http://localhost:8084/api/admin/dogs", {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await axios.get(`${API_URL}/api/admin/dogs`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
           'Content-Type': 'application/json'
@@ -67,7 +68,7 @@ const AdminDogs = () => {
   // Save update
   const handleUpdate = (id) => {
     axios
-      .put(`http://localhost:8084/api/admin/dogs/${id}`, form, {
+      .put(`${import.meta.env.VITE_API_URL}/api/admin/dogs/${id}`, form, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
           'Content-Type': 'application/json'
@@ -85,7 +86,7 @@ const AdminDogs = () => {
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this dog?")) {
       axios
-        .delete(`http://localhost:8084/api/admin/dogs/${id}`, {
+        .delete(`${import.meta.env.VITE_API_URL}/api/admin/dogs/${id}`, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
             'Content-Type': 'application/json'
@@ -105,7 +106,8 @@ const AdminDogs = () => {
 
     try {
       setError('');
-      await axios.post("http://localhost:8084/api/admin/dogs", newDog, {
+      const API_URL = import.meta.env.VITE_API_URL;
+      await axios.post(`${API_URL}/api/admin/dogs`, newDog, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
           'Content-Type': 'application/json'

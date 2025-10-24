@@ -19,7 +19,8 @@ const AdminReports = () => {
   const fetchReports = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:8084/api/admin/reports', {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/admin/reports`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
           'Content-Type': 'application/json'
@@ -47,7 +48,8 @@ const AdminReports = () => {
 
   const confirmDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:8084/api/admin/reports/${reportToDelete}`, {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/admin/reports/${reportToDelete}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
@@ -70,7 +72,8 @@ const AdminReports = () => {
 
   const handleStatusUpdate = async (reportId, newStatus) => {
     try {
-      const response = await fetch(`http://localhost:8084/api/admin/reports/${reportId}/status`, {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/admin/reports/${reportId}/status`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,

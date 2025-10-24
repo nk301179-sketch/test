@@ -98,8 +98,8 @@ const ReportDog = () => {
     try {
       const method = editingReport ? 'PUT' : 'POST';
       const url = editingReport
-        ? `http://localhost:8080/api/reports/${editingReport.id}`
-        : 'http://localhost:8080/api/reports';
+        ? `${import.meta.env.VITE_API_URL}/api/reports/${editingReport.id}`
+        : `${import.meta.env.VITE_API_URL}/api/reports`;
 
       const formDataToSend = new FormData();
       const reportData = {
@@ -198,7 +198,8 @@ const ReportDog = () => {
 
   const confirmDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/api/reports/${reportToDelete}`, {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/reports/${reportToDelete}`, {
         method: 'DELETE',
       });
 

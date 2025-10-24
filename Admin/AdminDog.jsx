@@ -18,8 +18,9 @@ const Admin = () => {
 
   // Fetch dogs
   const fetchDogs = () => {
+    const API_URL = import.meta.env.VITE_API_URL;
     axios
-      .get("http://localhost:8080/api/dogs")
+      .get(`${API_URL}/api/dogs`)
       .then((res) => setDogs(res.data))
       .catch((err) => console.error("Error fetching dogs:", err));
   };
@@ -52,8 +53,9 @@ const Admin = () => {
 
   // Save update
   const handleUpdate = (id) => {
+    const API_URL = import.meta.env.VITE_API_URL;
     axios
-      .put(`http://localhost:8080/api/dogs/${id}`, form)
+      .put(`${API_URL}/api/dogs/${id}`, form)
       .then(() => {
         fetchDogs();
         setEditingId(null);
@@ -65,8 +67,9 @@ const Admin = () => {
   // Delete dog
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this dog?")) {
+      const API_URL = import.meta.env.VITE_API_URL;
       axios
-        .delete(`http://localhost:8080/api/dogs/${id}`)
+        .delete(`${API_URL}/api/dogs/${id}`)
         .then(() => fetchDogs())
         .catch((err) => console.error("Error deleting dog:", err));
     }
@@ -79,8 +82,9 @@ const Admin = () => {
       return;
     }
 
+    const API_URL = import.meta.env.VITE_API_URL;
     axios
-      .post("http://localhost:8080/api/dogs", newDog)
+      .post(`${API_URL}/api/dogs`, newDog)
       .then(() => {
         fetchDogs();
         setNewDog({

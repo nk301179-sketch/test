@@ -49,7 +49,8 @@ function RequestModal({ onClose, onSubmit, initialData }) {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("http://localhost:8084/api/surrender-dogs", {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/surrender-dogs`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

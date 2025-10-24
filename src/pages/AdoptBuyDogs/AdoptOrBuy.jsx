@@ -24,7 +24,8 @@ export default function AdoptOrBuy() {
       const token = localStorage.getItem('token')
       if (!token) return
 
-      const response = await fetch('http://localhost:8084/api/applications/my-applications', {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/applications/my-applications`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'

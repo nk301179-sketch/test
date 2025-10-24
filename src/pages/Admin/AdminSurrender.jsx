@@ -19,7 +19,8 @@ const AdminSurrender = () => {
   const fetchSurrenderRequests = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:8084/api/admin/surrender-submissions', {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/admin/surrender-submissions`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
           'Content-Type': 'application/json'
@@ -47,7 +48,8 @@ const AdminSurrender = () => {
 
   const confirmDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:8084/api/admin/surrender-submissions/${requestToDelete}`, {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/admin/surrender-submissions/${requestToDelete}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,

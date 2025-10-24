@@ -11,8 +11,9 @@ const DogBuy = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const API_URL = import.meta.env.VITE_API_URL;
     axios
-      .get("http://localhost:8084/api/dogs/buy")
+      .get(`${API_URL}/api/dogs/buy`)
       .then((res) => setDogs(res.data))
       .catch((err) => console.error("Error fetching dogs:", err));
   }, []);

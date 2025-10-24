@@ -26,31 +26,31 @@ const AdminDashboard = () => {
       
       // Fetch all stats in parallel
       const [usersRes, dogsRes, applicationsRes, reportsRes, surrenderRes] = await Promise.all([
-        fetch('http://localhost:8084/api/admin/users', {
+        fetch(`${import.meta.env.VITE_API_URL}/api/admin/users`, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
             'Content-Type': 'application/json'
           }
         }),
-        fetch('http://localhost:8084/api/admin/dogs', {
+        fetch(`${import.meta.env.VITE_API_URL}/api/admin/dogs`, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
             'Content-Type': 'application/json'
           }
         }),
-        fetch('http://localhost:8084/api/admin/applications', {
+        fetch(`${import.meta.env.VITE_API_URL}/api/admin/applications`, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
             'Content-Type': 'application/json'
           }
         }),
-        fetch('http://localhost:8084/api/admin/reports', {
+        fetch(`${import.meta.env.VITE_API_URL}/api/admin/reports`, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
             'Content-Type': 'application/json'
           }
         }),
-        fetch('http://localhost:8084/api/admin/surrender-submissions', {
+        fetch(`${import.meta.env.VITE_API_URL}/api/admin/surrender-submissions`, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
             'Content-Type': 'application/json'

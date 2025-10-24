@@ -37,7 +37,8 @@ const ApplicationForm = ({ dog, onClose, onSubmit }) => {
         message: formData.message
       };
 
-      const response = await axios.post('http://localhost:8084/api/applications', applicationData, {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await axios.post(`${API_URL}/api/applications`, applicationData, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,
           'Content-Type': 'application/json'
