@@ -43,7 +43,7 @@ const AdminApplications = () => {
 
   const handleStatusUpdate = async (applicationId, newStatus) => {
     try {
-      const response = await fetch(`http://localhost:8084/api/admin/applications/${applicationId}`, {
+      const response = await fetch(`https://home4paws-be-production.up.railway.app/api/admin/applications/${applicationId}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
