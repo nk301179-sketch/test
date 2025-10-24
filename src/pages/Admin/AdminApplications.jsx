@@ -20,7 +20,8 @@ const AdminApplications = () => {
   const fetchApplications = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:8084/api/admin/applications', {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/admin/applications`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
           'Content-Type': 'application/json'
@@ -43,7 +44,8 @@ const AdminApplications = () => {
 
   const handleStatusUpdate = async (applicationId, newStatus) => {
     try {
-      const response = await fetch(`https://home4paws-be-production.up.railway.app/api/admin/applications/${applicationId}`, {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/admin/applications/${applicationId}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
@@ -74,7 +76,8 @@ const AdminApplications = () => {
 
   const confirmDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:8084/api/admin/applications/${applicationToDelete}`, {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/admin/applications/${applicationToDelete}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
