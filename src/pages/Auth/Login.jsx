@@ -214,16 +214,6 @@ const Login = () => {
               <p className="demo-credentials-text">
                 Password: <code className="demo-credentials-code">password123</code>
               </p>
-              <hr style={{ margin: '1rem 0', border: '1px solid #e2e8f0' }} />
-              <p className="demo-credentials-text">
-                <strong>Admin User:</strong>
-              </p>
-              <p className="demo-credentials-text">
-                Username: <code className="demo-credentials-code">admin</code>
-              </p>
-              <p className="demo-credentials-text">
-                Password: <code className="demo-credentials-code">Admin123!</code>
-              </p>
             </div>
           </div>
         </motion.div>
