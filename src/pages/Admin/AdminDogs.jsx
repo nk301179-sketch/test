@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import ConfirmationModal from "../../components/ConfirmationModal/ConfirmationModal";
 import "./AdminDogs.css";
 
 const AdminDogs = () => {
@@ -8,6 +9,8 @@ const AdminDogs = () => {
   const [form, setForm] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [dogToDelete, setDogToDelete] = useState(null);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [newDog, setNewDog] = useState({
     name: "",
     breed: "",
@@ -84,17 +87,29 @@ const AdminDogs = () => {
 
   // Delete dog
   const handleDelete = (id) => {
-    if (window.confirm("Are you sure you want to delete this dog?")) {
-      axios
-        .delete(`${import.meta.env.VITE_API_URL}/api/admin/dogs/${id}`, {
-          headers: {
-            'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
-            'Content-Type': 'application/json'
-          }
-        })
-        .then(() => fetchDogs())
-        .catch((err) => console.error("Error deleting dog:", err));
-    }
+    setDogToDelete(id);
+    setShowDeleteModal(true);
+  };
+
+  const confirmDelete = () => {
+    axios
+      .delete(`${import.meta.env.VITE_API_URL}/api/admin/dogs/${dogToDelete}`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(() => {
+        fetchDogs();
+        setShowDeleteModal(false);
+        setDogToDelete(null);
+      })
+      .catch((err) => console.error("Error deleting dog:", err));
+  };
+
+  const cancelDelete = () => {
+    setShowDeleteModal(false);
+    setDogToDelete(null);
   };
 
   // Create new dog
@@ -345,6 +360,15 @@ const AdminDogs = () => {
         </tbody>
         </table>
         </div>
+
+      {/* Delete Confirmation Modal */}
+      {showDeleteModal && (
+        <ConfirmationModal
+          message="Are you sure you want to delete this dog? This action cannot be undone."
+          onConfirm={confirmDelete}
+          onCancel={cancelDelete}
+        />
+      )}
     </div>
   );
 };

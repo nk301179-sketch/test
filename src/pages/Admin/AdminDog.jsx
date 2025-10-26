@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import ConfirmationModal from "../../components/ConfirmationModal/ConfirmationModal";
 import "./AdminDog.css";
 
 const Admin = () => {
   const [dogs, setDogs] = useState([]);
   const [editingId, setEditingId] = useState(null);
   const [form, setForm] = useState({});
+  const [dogToDelete, setDogToDelete] = useState(null);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [newDog, setNewDog] = useState({
     name: "",
     breed: "",
@@ -64,12 +67,24 @@ const Admin = () => {
 
   // Delete dog
   const handleDelete = (id) => {
-    if (window.confirm("Are you sure you want to delete this dog?")) {
-      axios
-        .delete(`${import.meta.env.VITE_API_URL}/api/dogs/${id}`)
-        .then(() => fetchDogs())
-        .catch((err) => console.error("Error deleting dog:", err));
-    }
+    setDogToDelete(id);
+    setShowDeleteModal(true);
+  };
+
+  const confirmDelete = () => {
+    axios
+      .delete(`${import.meta.env.VITE_API_URL}/api/dogs/${dogToDelete}`)
+      .then(() => {
+        fetchDogs();
+        setShowDeleteModal(false);
+        setDogToDelete(null);
+      })
+      .catch((err) => console.error("Error deleting dog:", err));
+  };
+
+  const cancelDelete = () => {
+    setShowDeleteModal(false);
+    setDogToDelete(null);
   };
 
   // Create new dog
@@ -283,6 +298,15 @@ const Admin = () => {
           ))}
         </tbody>
       </table>
+
+      {/* Delete Confirmation Modal */}
+      {showDeleteModal && (
+        <ConfirmationModal
+          message="Are you sure you want to delete this dog? This action cannot be undone."
+          onConfirm={confirmDelete}
+          onCancel={cancelDelete}
+        />
+      )}
     </div>
   );
 };
